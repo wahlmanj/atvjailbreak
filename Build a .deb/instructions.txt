@@ -12,7 +12,7 @@ rm -R /Applications/atvjailbreak
 cd /Applications
 git clone git://github.com/wahlmanj/atvjailbreak.git
 cd /Applications/atvjailbreak
-chmod +x install.bash
+chmod +x installibaa.bash
 ./installbaa.bash
 
 or
@@ -22,7 +22,7 @@ rm -R /Applications/atvjailbreak
 cd /Applications
 git clone git://github.com/wahlmanj/atvjailbreak.git
 cd /Applications/atvjailbreak
-chmod +x install.bash
+chmod +x installwahlmanj.bash
 ./installwahlmanj.bash
 
 
