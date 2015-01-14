@@ -12,7 +12,7 @@ rm -rf /Applications/PlexConnect
 fi
 # Clone Theme
 cd /Applications
-git clone git://github.com/iBaa/PlexConnect.git
+git clone git://github.com/Wahlmanj3/PlexConnect.git
 # Create Certs
 cd /Applications/PlexConnect
 openssl req -new -nodes -newkey rsa:2048 -outform pem -out ./assets/certificates/trailers.cer -keyout ./assets/certificates/trailers.key -x509 -days 3650 -subj "/C=US/CN=trailers.apple.com"
