@@ -7,7 +7,7 @@ default aTV password = alpine
 
 Follow these easy terminal commands. I have installed this on multiple atv2's and so have others, set your dns to auto not manual. This automates nearly the entire aTV plexconnect installation for you. ssh into your Atv and enter these commands after your navigated to the folder where you placed them (nitoTV is the easiest way to install openssh for ssh access, also server auditor):
 
-apt-get install git
+apt-get -y install git
 rm -R /Applications/atvjailbreak
 cd /Applications
 git clone git://github.com/wahlmanj/atvjailbreak.git
@@ -17,7 +17,7 @@ chmod +x installibaa.bash
 
 or
 
-apt-get install git
+apt-get -y install git
 rm -R /Applications/atvjailbreak
 cd /Applications
 git clone git://github.com/wahlmanj/atvjailbreak.git
