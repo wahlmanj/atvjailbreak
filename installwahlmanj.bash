@@ -12,7 +12,7 @@ rm -rf /Applications/PlexConnect
 fi
 # Clone Theme
 cd /Applications
-git clone git://github.com/Wahlmanj3/PlexConnect.git
+git clone git://github.com/iBaa/PlexConnect.git
 # Create Certs
 cd /Applications/PlexConnect
 openssl req -new -nodes -newkey rsa:2048 -outform pem -out ./assets/certificates/trailers.cer -keyout ./assets/certificates/trailers.key -x509 -days 3650 -subj "/C=US/CN=trailers.apple.com"
@@ -21,7 +21,7 @@ cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./a
 cd /Applications/atvjailbreak
 dpkg -i python_2.7.3-3_iphoneos-arm.deb
 rm -R /Applications/PlexConnect/Settings.cfg
-cp /Applications/PlexConnect/Settings.cfg /Applications/PlexConnect
+cp -R /Applications/atvjailbreak/Settings.cfg /Applications/PlexConnect
 cp -rf hosts /
 # install autoupdate plist
 cp update.bash /usr/bin
