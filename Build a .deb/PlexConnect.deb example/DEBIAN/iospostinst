@@ -1,0 +1,26 @@
+#!/bin/bash
+
+rm -R /Applications/PlexConnect
+mkdir /Applications/onlytemp
+cd /Applications/onlytemp
+git clone git://github.com/wahlmanj/PlexConnect.git
+cd /Applications
+git clone git://github.com/iBaa/PlexConnect.git
+tar -xvf PlexConnect.tar.gz -C /Applications
+cd /Applications/PlexConnect
+cp env /usr/bin
+chmod +x /usr/bin/env
+cd /Applications/PlexConnect/support
+mkdir IOS_jailbreak
+cp /Applications/onlytemp/PlexConnect/support/IOS_jailbreak/* /Applications/PlexConnect/support/IOS_jailbreak
+cd /Applications/PlexConnect/support/IOS_jailbreak
+chmod +x install.bash
+chmod +x createcert.bash
+cp update.bash /private/var/stash/bin
+./createcert.bash
+./install.bash
+./restart.bash
+rm -R /Applications/onlytemp
+cd /Applications
+rm PlexConnect.tar.gz
+exit 0

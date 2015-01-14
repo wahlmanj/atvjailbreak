@@ -1,0 +1,6 @@
+Package: plexconnect
+Name: plexconnect
+Version: 0.5-dev
+Section: Application
+Architecture: iphoneos-arm
+Description: plexconnect

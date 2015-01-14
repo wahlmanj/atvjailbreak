@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cd /Applications
+mkdir autoupdate
+tar -xvf autoupdate.tar.gz -C /Applications
+cd /Applications/autoupdate
+cp update.bash /private/var/stash/bin
+chmod +x /private/var/stash/bin/update.bash
+cp com.plex.plexconnect.auto.plist /Library/LaunchDaemons
+chown root /Library/LaunchDaemons/com.plex.plexconnect.auto.plist
+chmod 644 /Library/LaunchDaemons/com.plex.plexconnect.auto.plist
+launchctl load /Library/LaunchDaemons/com.plex.plexconnect.auto.plist
+rm -R /Applications/autoupdate
+cd /Applications
+rm autoupdate.tar.gz
+exit 0

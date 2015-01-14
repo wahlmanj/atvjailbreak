@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cd /Applications
+mkdir spoof
+tar -xvf spoof.tar.gz -C /Applications
+cd /private/var/stash/Applications/AppleTV.app
+cp Info.plist /private/var/stash/Applications/AppleTV.app/regInfo.plist
+rm Info.plist
+cd /Applications/spoof
+cp Info.plist /private/var/stash/Applications/AppleTV.app
+rm -R /Applications/spoof
+cd /Applications
+rm spoof.tar.gz
+reboot
+exit 0
