@@ -13,21 +13,20 @@ cd /Applications
 git clone git://github.com/wahlmanj/atvjailbreak.git
 cd /Applications/atvjailbreak
 chmod +x install.bash
-./install.bash
-dpkg -i ibaa.deb
+./installbaa.bash
 
-__desired plexconnect.deb__
-apt-get update
-apt-get upgrade
-apt-get install cydia
-apt-get install python
-dpkg -i python_2.7.3-3_iphoneos-arm.deb
+or
+
+apt-get install git
+rm -R /Applications/atvjailbreak
 cd /Applications
-git clone git://github.com/iBaa/PlexConnect.git
+git clone git://github.com/wahlmanj/atvjailbreak.git
 cd /Applications/atvjailbreak
-rm /Applications/PlexConnect/Settings.cfg
-cp Settings.cfg /Applications/PlexConnect
-dpkg -i autoupdate.deb
+chmod +x install.bash
+./installwahlmanj.bash
+
+
+# dpkg -i ibaa.deb
 
 ##once complete the aTV will reboot and you will have a new plexconnect button. Just sign into myplex and you should be all set.
 
