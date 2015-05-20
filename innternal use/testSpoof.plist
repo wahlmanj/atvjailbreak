@@ -5,6 +5,13 @@
 <key>CFBundleSourceVersion</key>
 <string>6698.99.50.31</string>
 
+<key>CFBundleShortVersionString</key>
+<string>6.2.1</string>
+<key>CFBundleVersion</key>
+<string>6.2.1</string>
+<key>CFBundleSourceVersion</key>
+<string>6698.99.50.41</string>
+
 location:
 
 /private/var/stash/Applications/AppleTV.app/Info.plist
