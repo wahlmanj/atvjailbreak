@@ -4,3 +4,7 @@
 <string>6.2</string>
 <key>CFBundleSourceVersion</key>
 <string>6698.99.50.31</string>
+
+location:
+
+/private/var/stash/Applications/AppleTV.app/Info.plist
