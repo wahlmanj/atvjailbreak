@@ -24,8 +24,7 @@ cd /Library/LaunchDaemons
 launchctl unload com.plex.plexconnect.bash.plist
 
 ## find PlexConnect main path
-cd __INSTALLERPATH__
-cd ../..
+cd /Applications/PlexConnect
 
 ## change permissions of .git so update.bash can be ran without su
 ##chown -R __USERNAME__ .git
