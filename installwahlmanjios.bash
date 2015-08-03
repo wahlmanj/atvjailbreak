@@ -17,9 +17,14 @@ git clone git://github.com/Wahlmanj3/PlexConnect.git
 cd /Applications/PlexConnect
 openssl req -new -nodes -newkey rsa:2048 -outform pem -out ./assets/certificates/trailers.cer -keyout ./assets/certificates/trailers.key -x509 -days 3650 -subj "/C=US/CN=trailers.apple.com"
 cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem
-# install requirements from atvjailbreak github
+# install requirements from atvjailbreak github if neeeded
 cd /Applications/atvjailbreak
-dpkg -i python_2.7.3-3_iphoneos-arm.deb
+if [ -f /usr/bin/python2.7 ];
+then
+   echo "Python already installed"
+else
+  dpkg -i python_2.7.3-3_iphoneos-arm.deb
+fi
 # install autoupdate plist
 cp update.bash /usr/bin
 cp updatebash.bash /usr/bin
