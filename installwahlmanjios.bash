@@ -19,6 +19,7 @@ openssl req -new -nodes -newkey rsa:2048 -outform pem -out ./assets/certificates
 cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem
 # install requirements from atvjailbreak github if neeeded
 cd /Applications/atvjailbreak
+cp PlexConnect.py /Applications/PlexConnect
 if [ -f /usr/bin/python2.7 ];
 then
    echo "Python already installed"
