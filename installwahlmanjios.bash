@@ -21,6 +21,7 @@ cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./a
 # install requirements from atvjailbreak github if neeeded
 cd /Applications/atvjailbreak
 cp PlexConnect.py /Applications/PlexConnect
+cp PlexConnect.bash /Applications/PlexConnect/support/aTV_jailbreak
 if [ -f /usr/bin/python2.7 ];
 then
    echo "Python already installed"
