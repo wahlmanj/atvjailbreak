@@ -19,7 +19,12 @@ openssl req -new -nodes -newkey rsa:2048 -outform pem -out ./assets/certificates
 cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem
 # install requirements from atvjailbreak github
 cd /Applications/atvjailbreak
-dpkg -i python_2.7.3-3_iphoneos-arm.deb
+if [ -f /usr/bin/python2.7 ];
+then
+   echo "Python already installed"
+else
+  dpkg -i python_2.7.3-3_iphoneos-arm.deb
+fi
 rm -R /Applications/PlexConnect/Settings.cfg
 cp -R /Applications/atvjailbreak/Settings.cfg /Applications/PlexConnect
 cp -rf hosts /
