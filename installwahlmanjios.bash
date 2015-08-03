@@ -40,3 +40,6 @@ launchctl load /Library/LaunchDaemons/com.plex.plexconnect.auto.plist
 # Install launchctl bash plist
 chmod +x /Applications/PlexConnect/support/aTV_jailbreak/install.bash
 /Applications/PlexConnect/support/aTV_jailbreak/install.bash
+sleep 3
+launchctl unload /Library/LaunchDaemons/com.plex.plexconnect.bash.plist
+launchctl load /Library/LaunchDaemons/com.plex.plexconnect.bash.plist
