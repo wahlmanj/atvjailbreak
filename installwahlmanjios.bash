@@ -43,3 +43,4 @@ chmod +x /Applications/PlexConnect/support/aTV_jailbreak/install.bash
 sleep 3
 launchctl unload /Library/LaunchDaemons/com.plex.plexconnect.bash.plist
 launchctl load /Library/LaunchDaemons/com.plex.plexconnect.bash.plist
+echo "Point your aTV DNS to your ios Device and upload you cert from your ios device to complete the process, trailers is hijacked by default"
