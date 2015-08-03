@@ -20,8 +20,6 @@ cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./a
 # install requirements from atvjailbreak github
 cd /Applications/atvjailbreak
 dpkg -i python_2.7.3-3_iphoneos-arm.deb
-rm -R /Applications/PlexConnect/Settings.cfg
-cp -R /Applications/atvjailbreak/Settings.cfg /Applications/PlexConnect
 # install autoupdate plist
 cp update.bash /usr/bin
 cp updatebash.bash /usr/bin
