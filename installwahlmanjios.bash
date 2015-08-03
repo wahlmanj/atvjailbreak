@@ -4,7 +4,8 @@
 apt-get -y update
 apt-get -y upgrade
 apt-get -y install cydia
-apt-get -y install python
+apt-get -y install wget
+
 # Trash PlexConnect Folder if exists to avoid database errors
 if [ -s /Applications/PlexConnect ]
 then
