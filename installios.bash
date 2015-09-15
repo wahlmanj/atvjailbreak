@@ -1,26 +1,34 @@
 #!/bin/bash
 
-# Update sources & install dependencies
+## update sources & install dependencies
 apt-get -y update
 apt-get -y upgrade
 apt-get -y install cydia
 apt-get -y install wget
 
-# Trash PlexConnect Folder if exists to avoid database errors
+## trash PlexConnect Folder if exists to avoid database errors
 if [ -s /Applications/PlexConnect ]
 then
 rm -rf /Applications/PlexConnect
 fi
-# Clone Theme
 cd /Applications
-git clone git://github.com/iBaa/PlexConnect.git
-# Create Certs
+
+## clone desired theme
+echo "Which theme would you like to install? Press 1 for iBaa or 2 for Wahlmanj"
+select yn in "iBaa" "Wahlmanj"; do
+    case $yn in
+        iBaa ) git clone git://github.com/iBaa/PlexConnect.git; break;;
+        Wahlmanj ) git clone git://github.com/Wahlmanj3/PlexConnect.git; break;;
+    esac
+done
+
+## create Certs
 cd /Applications/PlexConnect
 openssl req -new -nodes -newkey rsa:2048 -outform pem -out ./assets/certificates/trailers.cer -keyout ./assets/certificates/trailers.key -x509 -days 3650 -subj "/C=US/CN=trailers.apple.com"
 cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem
-# install requirements from atvjailbreak github if neeeded
+
+## use python env for iOS support in PlexConect.py
 cd /Applications/atvjailbreak
-# Use python env to avoid errors in PlexConect.py
 cp PlexConnect.py /Applications/PlexConnect
 cp PlexConnect.bash /Applications/PlexConnect/support/aTV_jailbreak
 if [ -f /usr/bin/python2.7 ];
@@ -29,12 +37,16 @@ then
 else
   dpkg -i python_2.7.3-3_iphoneos-arm.deb
 fi
-# Install easy systemwide PlexConnect updates
+
+## install easy systemwide PlexConnect scripts
+cp restart.bash /usr/bin
 cp update.bash /usr/bin
 cp updatebash.bash /usr/bin
+chmod +x /usr/bin/restart.bash
 chmod +x /usr/bin/update.bash
 chmod +x /usr/bin/updatebash.bash
-# Install autoupdate plist if desired
+
+## install autoupdate plist if desired
 echo "Do you wish to install this PlexConnect autoupdates? Press 1 for Yes or 2 for No"
 select yn in "Yes" "No"; do
     case $yn in
@@ -42,7 +54,8 @@ select yn in "Yes" "No"; do
         No ) break;;
     esac
 done
-# Install launchctl bash plist
+
+## install launchctl bash plist
 chmod +x /Applications/PlexConnect/support/aTV_jailbreak/install.bash
 /Applications/PlexConnect/support/aTV_jailbreak/install.bash
 sleep 3
