@@ -42,14 +42,6 @@ select yn in "Yes" "No"; do
         No ) break;;
     esac
 done
-# Spoof to a higher iOS for more apps if desired
-echo "Do you wish to spoof your iOS to a higher version for more apps? Press 1 for Yes or 2 for No"
-select yn in "Yes" "No"; do
-    case $yn in
-        Yes ) dpkg -i spoof.deb; break;;
-        No ) break;;
-    esac
-done
 # Install launchctl bash plist
 chmod +x /Applications/PlexConnect/support/aTV_jailbreak/install.bash
 /Applications/PlexConnect/support/aTV_jailbreak/install.bash

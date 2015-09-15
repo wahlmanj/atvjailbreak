@@ -20,7 +20,6 @@ openssl req -new -nodes -newkey rsa:2048 -outform pem -out ./assets/certificates
 cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem
 # install requirements from atvjailbreak github if neeeded
 cd /Applications/atvjailbreak
-cp PlexConnect.py /Applications/PlexConnect
 cp PlexConnect.bash /Applications/PlexConnect/support/aTV_jailbreak
 if [ -f /usr/bin/python2.7 ];
 then
@@ -28,15 +27,19 @@ then
 else
   dpkg -i python_2.7.3-3_iphoneos-arm.deb
 fi
-# install autoupdate plist
+# Install easy systemwide PlexConnect updates
 cp update.bash /usr/bin
 cp updatebash.bash /usr/bin
 chmod +x /usr/bin/update.bash
 chmod +x /usr/bin/updatebash.bash
-cp com.plex.plexconnect.auto.plist /Library/LaunchDaemons
-chown root /Library/LaunchDaemons/com.plex.plexconnect.auto.plist
-chmod 644 /Library/LaunchDaemons/com.plex.plexconnect.auto.plist
-launchctl load /Library/LaunchDaemons/com.plex.plexconnect.auto.plist
+# Install autoupdate plist if desired
+echo "Do you wish to install this PlexConnect autoupdates? Press 1 for Yes or 2 for No"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) cp com.plex.plexconnect.auto.plist /Library/LaunchDaemons; chown root /Library/LaunchDaemons/com.plex.plexconnect.auto.plist; chmod 644 /Library/LaunchDaemons/com.plex.plexconnect.auto.plist; launchctl load /Library/LaunchDaemons/com.plex.plexconnect.auto.plist; break;;
+        No ) break;;
+    esac
+done
 # Install launchctl bash plist
 chmod +x /Applications/PlexConnect/support/aTV_jailbreak/install.bash
 /Applications/PlexConnect/support/aTV_jailbreak/install.bash
