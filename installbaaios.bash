@@ -20,6 +20,8 @@ openssl req -new -nodes -newkey rsa:2048 -outform pem -out ./assets/certificates
 cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem
 # install requirements from atvjailbreak github if neeeded
 cd /Applications/atvjailbreak
+# Use python env to avoid errors in PlexConect.py
+cp PlexConnect.py /Applications/PlexConnect
 cp PlexConnect.bash /Applications/PlexConnect/support/aTV_jailbreak
 if [ -f /usr/bin/python2.7 ];
 then
