@@ -19,9 +19,9 @@ cd /Applications/PlexConnect
 openssl req -new -nodes -newkey rsa:2048 -outform pem -out ./assets/certificates/trailers.cer -keyout ./assets/certificates/trailers.key -x509 -days 3650 -subj "/C=US/CN=trailers.apple.com"
 cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem
 # install requirements from atvjailbreak github if neeeded
+cd /Applications/atvjailbreak
 # Use python env to avoid errors in PlexConect.py
 cp PlexConnect.py /Applications/PlexConnect
-cd /Applications/atvjailbreak
 cp PlexConnect.bash /Applications/PlexConnect/support/aTV_jailbreak
 if [ -f /usr/bin/python2.7 ];
 then
