@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Update sources
+# Update sources & install dependencies
 apt-get -y update
 apt-get -y upgrade
 apt-get -y install cydia
@@ -24,7 +24,7 @@ cp PlexConnect.py /Applications/PlexConnect
 cp PlexConnect.bash /Applications/PlexConnect/support/aTV_jailbreak
 if [ -f /usr/bin/python2.7 ];
 then
-   echo "Python already installed"
+   echo "Python already installed, skipping"
 else
   dpkg -i python_2.7.3-3_iphoneos-arm.deb
 fi
@@ -43,4 +43,4 @@ chmod +x /Applications/PlexConnect/support/aTV_jailbreak/install.bash
 sleep 3
 launchctl unload /Library/LaunchDaemons/com.plex.plexconnect.bash.plist
 launchctl load /Library/LaunchDaemons/com.plex.plexconnect.bash.plist
-echo "Installation complete. point your aTV DNS to your iOS Device and upload your cert from your iOS device to complete the process, Trailers is hijacked by default"
+echo "Installation complete. Point your aTV DNS to your iOS Device and upload your cert from your iOS device to complete the process, Trailers is hijacked by default"

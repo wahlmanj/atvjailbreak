@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Update sources
+# Update sources & install dependencies
 apt-get -y update
 apt-get -y upgrade
 apt-get -y install cydia
@@ -21,27 +21,46 @@ cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./a
 cd /Applications/atvjailbreak
 if [ -f /usr/bin/python2.7 ];
 then
-   echo "Python already installed"
+   echo "Python already installed, skipping"
 else
   dpkg -i python_2.7.3-3_iphoneos-arm.deb
 fi
 rm -R /Applications/PlexConnect/Settings.cfg
 cp -R /Applications/atvjailbreak/Settings.cfg /Applications/PlexConnect
+# Prevent aTV updates
 cp -rf hosts /
-# install autoupdate plist
+# Install easy systemwide PlexConnect updates
 cp update.bash /usr/bin
 cp updatebash.bash /usr/bin
 chmod +x /usr/bin/update.bash
 chmod +x /usr/bin/updatebash.bash
-cp com.plex.plexconnect.auto.plist /Library/LaunchDaemons
-chown root /Library/LaunchDaemons/com.plex.plexconnect.auto.plist
-chmod 644 /Library/LaunchDaemons/com.plex.plexconnect.auto.plist
-launchctl load /Library/LaunchDaemons/com.plex.plexconnect.auto.plist
+# Install autoupdate plist if desired
+echo "Do you wish to install this autoupdates? Press 1 for Yes or 2 for No"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) cp com.plex.plexconnect.auto.plist /Library/LaunchDaemons; chown root /Library/LaunchDaemons/com.plex.plexconnect.auto.plist; chmod 644 /Library/LaunchDaemons/com.plex.plexconnect.auto.plist; launchctl load /Library/LaunchDaemons/com.plex.plexconnect.auto.plist; break;;
+        No ) break;;
+    esac
+done
+# Spoof to a higher iOS for more apps if desired
+echo "Do you wish to spoof your iOS to a higher version for more apps? Press 1 for Yes or 2 for No"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) dpkg -i spoof.deb; break;;
+        No ) break;;
+    esac
+done
 # Install launchctl bash plist
 chmod +x /Applications/PlexConnect/support/aTV_jailbreak/install.bash
 /Applications/PlexConnect/support/aTV_jailbreak/install.bash
 # Install button
 chmod +x /Applications/PlexConnect/support/aTV_jailbreak/install_button.bash
 /Applications/PlexConnect/support/aTV_jailbreak/install_button.bash
-# Reboot to load new button
-reboot
+# Ask to reboot to load new button if needed
+echo "Do you need to reboot your aTV? If this is your fist time installing PlexConnect on your aTV then press 1 if not press 2. Press 1 for Yes or 2 for No"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) reboot; break;;
+        No ) echo "PlexConnect installed and running!"; break;;
+    esac
+done
