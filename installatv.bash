@@ -42,9 +42,9 @@ cp -R /Applications/atvjailbreak/Settings.cfg /Applications/PlexConnect
 cp -rf hosts /
 
 ## install easy systemwide PlexConnect updates
-cp restart.bash
 cp update.bash /usr/bin
 cp updatebash.bash /usr/bin
+cp restart.bash /usr/bin
 chmod +x /usr/bin/update.bash
 chmod +x /usr/bin/updatebash.bash
 chmod +x /usr/bin/restart.bash
