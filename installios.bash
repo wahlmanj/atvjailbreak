@@ -28,9 +28,9 @@ echo "Which certs would you like to generate? Press 1 for Trailers or 2 for iMov
 select yn in "Trailers" "iMovie"; do
     case $yn in
         Trailers ) openssl req -new -nodes -newkey rsa:2048 -outform pem -out ./assets/certificates/trailers.cer -keyout ./assets/certificates/trailers.key -x509 -days 3650 -subj "/C=US/CN=trailers.apple.com"
-cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem; break;;
+cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem; sed -i '' 's/www.icloud.com/trailers.apple.com/g' Settings.cfg; break;;
         iMovie ) openssl req -new -nodes -newkey rsa:2048 -outform pem -out ./assets/certificates/trailers.cer -keyout ./assets/certificates/trailers.key -x509 -days 3650 -subj "/C=US/CN=www.icloud.com"
-cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem; break;;
+cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem; sed -i '' 's/trailers.apple.com/www.icloud.com/g' Settings.cfg; break;;
     esac
 done
 
