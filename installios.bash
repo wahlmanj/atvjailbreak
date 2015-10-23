@@ -24,8 +24,16 @@ done
 
 ## create Certs
 cd /Applications/PlexConnect
-openssl req -new -nodes -newkey rsa:2048 -outform pem -out ./assets/certificates/trailers.cer -keyout ./assets/certificates/trailers.key -x509 -days 3650 -subj "/C=US/CN=trailers.apple.com"
-cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem
+echo "Which certs would you like to generate? Press 1 for Trailers or 2 for iMovie"
+select yn in "Trailers" "iMovie"; do
+    case $yn in
+        Trailers ) openssl req -new -nodes -newkey rsa:2048 -outform pem -out ./assets/certificates/trailers.cer -keyout ./assets/certificates/trailers.key -x509 -days 3650 -subj "/C=US/CN=trailers.apple.com"
+cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem; break;;
+        iMovie ) openssl req -new -nodes -newkey rsa:2048 -outform pem -out ./assets/certificates/trailers.cer -keyout ./assets/certificates/trailers.key -x509 -days 3650 -subj "/C=US/CN=www.icloud.com"
+cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem; break;;
+    esac
+done
+
 
 ## use python env for iOS support in PlexConect.py
 cd /Applications/atvjailbreak
