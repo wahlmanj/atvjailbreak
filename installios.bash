@@ -28,9 +28,9 @@ echo "Which certs would you like to generate? Press 1 for Trailers or 2 for iMov
 select yn in "Trailers" "iMovie"; do
     case $yn in
         Trailers ) openssl req -new -nodes -newkey rsa:2048 -outform pem -out ./assets/certificates/trailers.cer -keyout ./assets/certificates/trailers.key -x509 -days 3650 -subj "/C=US/CN=trailers.apple.com"
-cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem; sed -i '' 's/www.icloud.com/trailers.apple.com/g' Settings.cfg; break;;
+cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem; break;;
         iMovie ) openssl req -new -nodes -newkey rsa:2048 -outform pem -out ./assets/certificates/trailers.cer -keyout ./assets/certificates/trailers.key -x509 -days 3650 -subj "/C=US/CN=www.icloud.com"
-cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem; sed -i '' 's/trailers.apple.com/www.icloud.com/g' Settings.cfg; break;;
+cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./assets/certificates/trailers.pem; break;;
     esac
 done
 
@@ -69,4 +69,13 @@ chmod +x /Applications/PlexConnect/support/aTV_jailbreak/install.bash
 sleep 3
 launchctl unload /Library/LaunchDaemons/com.plex.plexconnect.bash.plist
 launchctl load /Library/LaunchDaemons/com.plex.plexconnect.bash.plist
-echo "Installation complete. Point your aTV DNS to your iOS Device and upload your cert from your iOS device to complete the process, Trailers is hijacked by default"
+cd /Applications/PlexConnect
+echo "Which app would you like to hijack? Press 1 for Trailers or 2 for iMovie"
+select yn in "Trailers" "iMovie"; do
+    case $yn in
+        Trailers ) sed -i 's/www.icloud.com/trailers.apple.com/g' Settings.cfg; break;;
+        iMovie ) sed -i 's/trailers.apple.com/www.icloud.com/g' Settings.cfg; break;;
+    esac
+done
+restart.bash
+echo "Installation complete. Point your aTV DNS to your iOS Device and upload your cert from your iOS device to complete the process"
