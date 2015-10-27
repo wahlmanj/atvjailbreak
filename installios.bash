@@ -37,7 +37,7 @@ cat ./assets/certificates/trailers.cer ./assets/certificates/trailers.key >> ./a
 done
 
 
-## use python env for iOS support in PlexConect.py
+## install python if not installed yet
 cd /Applications/atvjailbreak
 if [ -f /usr/bin/python2.7 ];
 then
