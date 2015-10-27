@@ -68,9 +68,9 @@ sleep 3
 cp /Applications/atvjailbreak/com.plex.plexconnect.bash.plist /Library/LaunchDaemons
 launchctl unload /Library/LaunchDaemons/com.plex.plexconnect.bash.plist
 launchctl load /Library/LaunchDaemons/com.plex.plexconnect.bash.plist
-cd /Applications/PlexConnect
 
 ## Switch hijack if required (sleep 2 to ensure Settings.cfg has been generated)
+cd /Applications/PlexConnect
 echo "Which app would you like to hijack? Press 1 for Trailers or 2 for iMovie"
 select yn in "Trailers" "iMovie"; do
     case $yn in
