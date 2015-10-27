@@ -47,12 +47,14 @@ else
 fi
 
 ## install easy systemwide PlexConnect scripts
-cp restart.bash /usr/bin
 cp update.bash /usr/bin
 cp updatebash.bash /usr/bin
-chmod +x /usr/bin/restart.bash
+cp restart.bash /usr/bin
+cp status.bash /usr/bin
 chmod +x /usr/bin/update.bash
 chmod +x /usr/bin/updatebash.bash
+chmod +x /usr/bin/restart.bash
+chmod +x /usr/bin/status.bash
 
 ## install autoupdate plist if desired
 echo "Do you wish to install this PlexConnect autoupdates? Press 1 for Yes or 2 for No"
