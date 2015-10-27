@@ -5,6 +5,8 @@ apt-get -y update
 apt-get -y upgrade
 apt-get -y install cydia
 apt-get -y install wget
+apt-get -y install adv-cmds
+# adv-cmds is a alternative for ps for status.bash
 
 ## trash PlexConnect Folder if exists to avoid database errors
 if [ -s /Applications/PlexConnect ]
@@ -69,6 +71,7 @@ done
 chmod +x /Applications/PlexConnect/support/aTV_jailbreak/install.bash
 /Applications/PlexConnect/support/aTV_jailbreak/install.bash
 sleep 3
+cp /Applications/atvjailbreak/com.plex.plexconnect.bash.plist /Library/LaunchDaemons
 launchctl unload /Library/LaunchDaemons/com.plex.plexconnect.bash.plist
 launchctl load /Library/LaunchDaemons/com.plex.plexconnect.bash.plist
 cd /Applications/PlexConnect
