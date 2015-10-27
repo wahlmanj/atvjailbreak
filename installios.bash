@@ -24,7 +24,7 @@ select yn in "iBaa" "Wahlmanj"; do
     esac
 done
 
-## create Certs
+## create desired Certs
 cd /Applications/PlexConnect
 echo "Which certs would you like to generate? Press 1 for Trailers or 2 for iMovie"
 select yn in "Trailers" "iMovie"; do
@@ -62,7 +62,6 @@ select yn in "Yes" "No"; do
 done
 
 ## install launchctl bash plist
-chmod +x /Applications/PlexConnect/support/aTV_jailbreak/install.bash
 /Applications/PlexConnect/support/aTV_jailbreak/install.bash
 sleep 3
 cp /Applications/atvjailbreak/com.plex.plexconnect.bash.plist /Library/LaunchDaemons
