@@ -51,10 +51,6 @@ cp update.bash /usr/bin
 cp updatebash.bash /usr/bin
 cp restart.bash /usr/bin
 cp status.bash /usr/bin
-chmod +x /usr/bin/update.bash
-chmod +x /usr/bin/updatebash.bash
-chmod +x /usr/bin/restart.bash
-chmod +x /usr/bin/status.bash
 
 ## install autoupdate plist if desired
 echo "Do you wish to install this PlexConnect autoupdates? Press 1 for Yes or 2 for No"
@@ -73,11 +69,13 @@ cp /Applications/atvjailbreak/com.plex.plexconnect.bash.plist /Library/LaunchDae
 launchctl unload /Library/LaunchDaemons/com.plex.plexconnect.bash.plist
 launchctl load /Library/LaunchDaemons/com.plex.plexconnect.bash.plist
 cd /Applications/PlexConnect
+
+## Switch hijack if required (sleep 2 to ensure Settings.cfg has been generated)
 echo "Which app would you like to hijack? Press 1 for Trailers or 2 for iMovie"
 select yn in "Trailers" "iMovie"; do
     case $yn in
-        Trailers ) sed -i 's/www.icloud.com/trailers.apple.com/g' Settings.cfg; break;;
-        iMovie ) sed -i 's/trailers.apple.com/www.icloud.com/g' Settings.cfg; break;;
+Trailers ) sleep 2; sed -i 's/www.icloud.com/trailers.apple.com/g' Settings.cfg; break;;
+iMovie ) sleep 2; sed -i 's/trailers.apple.com/www.icloud.com/g' Settings.cfg; break;;
     esac
 done
 restart.bash
