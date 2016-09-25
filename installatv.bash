@@ -33,7 +33,7 @@ if [ -f /usr/bin/python2.7 ];
 then
    echo "Python already installed, skipping"
 else
-  wget --no-check-certificate https://yangapp.googlecode.com/files/python_2.7.3-3_iphoneos-arm.deb; dpkg -i python_2.7.3-3_iphoneos-arm.deb; rm -R python_2.7.3-3_iphoneos-arm.deb
+  wget --no-check-certificate https://github.com/linusyang/python-for-ios/releases/download/v2.7.6-3/python_2.7.6-3_iphoneos-arm.deb; dpkg -i python_2.7.6-3_iphoneos-arm.deb; rm -R python_2.7.6-3_iphoneos-arm.deb
 fi
 rm -R /Applications/PlexConnect/Settings.cfg
 cp -R /Applications/atvjailbreak/Settings.cfg /Applications/PlexConnect
