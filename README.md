@@ -7,6 +7,6 @@ SSH into your JB iOS device (install OpenSSH from the BB repo if needed) then pa
 
 apt-get -y update; apt-get -y upgrade; apt-get -y install git; rm -R /Applications/atvjailbreak; cd /Applications; git clone git://github.com/wahlmanj/atvjailbreak.git; cd /Applications/atvjailbreak; ./installios.bash
 
-# aTV only
+# jailbroken aTV2 only ios 5.3 and lower ssh command:
 
 apt-get -y install git; rm -R /Applications/atvjailbreak; cd /Applications; git clone git://github.com/wahlmanj/atvjailbreak.git; cd /Applications/atvjailbreak; ./installatv.bash
