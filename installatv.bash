@@ -64,6 +64,7 @@ done
 chmod +x /Applications/PlexConnect/support/aTV_jailbreak/inst_atv3.sh
 chmod +x /Applications/PlexConnect/support/aTV_jailbreak/install_atv3.bash
 chmod +x /Applications/PlexConnect/support/aTV_jailbreak/PlexConnect.bash
+chmod +x /Applications/PlexConnect/PlexConnect.py
 
 ## install launchctl bash plist
 chmod +x /Applications/PlexConnect/support/aTV_jailbreak/install.bash
