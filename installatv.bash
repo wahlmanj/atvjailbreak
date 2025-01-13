@@ -60,6 +60,11 @@ select yn in "Yes" "No"; do
     esac
 done
 
+## make excecutable
+chmod +x /Applications/PlexConnect/support/aTV_jailbreak/inst_atv3.sh
+chmod +x /Applications/PlexConnect/support/aTV_jailbreak/install_atv3.bash
+chmod +x /Applications/PlexConnect/support/aTV_jailbreak/PlexConnect.bash
+
 ## install launchctl bash plist
 chmod +x /Applications/PlexConnect/support/aTV_jailbreak/install.bash
 /Applications/PlexConnect/support/aTV_jailbreak/install.bash
